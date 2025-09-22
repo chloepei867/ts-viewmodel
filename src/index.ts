@@ -20,9 +20,23 @@ import { User } from "./models/User";
 //   console.log(user);
 // }, 4000);
 
-const newUser: User = new User({
-  name: "clair",
-  age: 111,
+const user = new User({
+  name: "ddd",
+  age: 11,
 });
 
-newUser.save();
+// user.events.on("click", () => {
+//   console.log("clicked");
+// });
+
+// user.events.trigger("click");
+
+user.sync.save({
+  id: "qxNr2Rx",
+  name: "zhangsan",
+  age: 999,
+});
+
+user.sync.fetch(user.get("id")).then((response) => {
+  console.log(response.data);
+});
