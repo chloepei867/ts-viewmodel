@@ -3,7 +3,13 @@ import { User, UserProps } from "./models/User";
 import { Collection } from "./models/Collection";
 import { UserForm } from "./views/UserForm";
 
-const userForm = new UserForm(document.getElementById("root")!);
+const user = User.buildUser({
+  id: 1,
+  name: "bob",
+  age: 23,
+});
+
+const userForm = new UserForm(document.getElementById("root")!, user);
 userForm.render();
 
 // const userRootUrl = "http://localhost:3000/users";
