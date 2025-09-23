@@ -2,7 +2,7 @@ import { Eventing } from "./Eventing";
 import { ApiSync } from "./ApiSync";
 import { Attributes } from "./Attributes";
 import { AxiosResponse } from "axios";
-import { Model } from "../Model";
+import { Model } from "./Model";
 import { Collection } from "./Collection";
 
 const rootUrl = "http://localhost:3000/users";
