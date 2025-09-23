@@ -1,79 +1,9 @@
 {
   "users": [
     {
-      "id": "1",
-      "name": "alice",
-      "age": 34
-    },
-    {
-      "id": "2",
-      "name": "bob",
-      "age": 12
-    },
-    {
-      "id": "3",
-      "name": "josh!!!",
-      "age": 12
-    },
-    {
-      "name": "ddd",
-      "age": 11,
-      "id": "_OPI_mZ"
-    },
-    {
-      "name": "ddd",
-      "age": 11,
-      "id": "fmNAb88"
-    },
-    {
-      "name": "ddd",
-      "age": 11,
-      "id": "jgq56Vh"
-    },
-    {
-      "name": "ddd",
-      "age": 11,
-      "id": "cUtBPKE"
-    },
-    {
-      "name": "ddd",
-      "age": 11,
-      "id": "lQhQ3tI"
-    },
-    {
-      "name": "ddd",
-      "age": 11,
-      "id": "MM-uJ6H"
-    },
-    {
-      "id": "qxNr2Rx",
-      "name": "zhangsan",
-      "age": 999
-    },
-    {
-      "name": "zhangsan",
-      "age": 999,
-      "id": "RLSpXuU"
-    },
-    {
-      "name": "wendy",
+      "name": "Adolf",
       "age": 45,
-      "id": "Lsu7jO2"
-    },
-    {
-      "name": "wendy",
-      "age": 45,
-      "id": "a6X7yKE"
-    },
-    {
-      "name": "wendy",
-      "age": 45,
-      "id": "I9Qqa-c"
-    },
-    {
-      "name": "wendy",
-      "age": 45,
-      "id": "1h_Mwfz"
+      "id": 1
     }
   ]
 }
