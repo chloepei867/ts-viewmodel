@@ -8,14 +8,14 @@ interface hasId {
 export class Sync<T extends hasId> {
   constructor(public rootUrl: string) {}
 
-  fetch(id: string): AxiosPromise<T> {
+  fetch = (id: string): AxiosPromise<T> => {
     return axios.get(`${this.rootUrl}/${id}`);
     // .then((response: AxiosResponse): void => {
     //   return response.data;
     // });
-  }
+  };
 
-  save(data: T): AxiosPromise<T> {
+  save = (data: T): AxiosPromise<T> => {
     const { id } = data;
 
     if (id) {
@@ -23,5 +23,5 @@ export class Sync<T extends hasId> {
     } else {
       return axios.post(this.rootUrl, data);
     }
-  }
+  };
 }
