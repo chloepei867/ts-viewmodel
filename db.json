@@ -4,6 +4,16 @@
       "name": "Adolf",
       "age": 45,
       "id": 1
+    },
+    {
+      "name": "alice",
+      "age": 13,
+      "id": 2
+    },
+    {
+      "name": "bob",
+      "age": 54,
+      "id": 3
     }
   ]
 }

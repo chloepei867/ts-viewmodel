@@ -1,20 +1,18 @@
 import axios, { AxiosResponse } from "axios";
-import { User } from "./models/User";
+import { User, UserProps } from "./models/User";
+import { Collection } from "./models/Collection";
 
-const user = User.buildUser({
-  id: 1,
-  name: "Adolf",
-  age: 45,
+const userRootUrl = "http://localhost:3000/users";
+
+const collections = new Collection<User, UserProps>(
+  userRootUrl,
+  User.buildUser
+);
+
+collections.on("change", () => {
+  console.log("collection has changed");
 });
 
-user.on("save", () => {
-  console.log("data is saved");
+collections.fetch().then((response) => {
+  console.log(collections.models);
 });
-
-// user.save();
-// console.log(user.get("name"));
-// console.log(user.get("age"));
-
-user.fetch();
-console.log(user);
-user.trigger("save");
