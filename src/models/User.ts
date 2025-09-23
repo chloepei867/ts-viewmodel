@@ -21,4 +21,8 @@ export class User extends Model<UserProps> {
       new ApiSync(rootUrl)
     );
   }
+
+  static buildUserCollection(): Collection<User, UserProps> {
+    return new Collection(rootUrl, this.buildUser);
+  }
 }

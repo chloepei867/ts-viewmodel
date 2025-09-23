@@ -4,15 +4,12 @@ import { Collection } from "./models/Collection";
 
 const userRootUrl = "http://localhost:3000/users";
 
-const collections = new Collection<User, UserProps>(
-  userRootUrl,
-  User.buildUser
-);
+const userCollections = User.buildUserCollection();
 
-collections.on("change", () => {
+userCollections.on("change", () => {
   console.log("collection has changed");
 });
 
-collections.fetch().then((response) => {
-  console.log(collections.models);
+userCollections.fetch().then((response) => {
+  console.log(userCollections.models);
 });
