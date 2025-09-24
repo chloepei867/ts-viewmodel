@@ -16,7 +16,13 @@ export class UserForm {
     return {
       // "click:button": this.onClickButton,
       "click:.set-age": () => this.onClickSetAge(),
+      "click:.set-name": () => this.onClickSetName(),
     };
+  }
+
+  onClickSetName(): void {
+    const name = this.parent.querySelector("input")?.value;
+    this.model.set({ name });
   }
 
   onClickSetAge() {
@@ -40,10 +46,10 @@ export class UserForm {
       <div>User ID: ${this.model.get("id")}</div>
       <div>User Name: ${this.model.get("name")}</div>
       <div>User Age: ${this.model.get("age")}</div>
-
-      <button>click me</button>
-      <button class="set-age">Set Random Age</button>
       <input />
+      <button class="set-name">Change Name</button>
+      <button class="set-age">Set Random Age</button>
+      
     </div>
     `;
   }
