@@ -1,12 +1,32 @@
 import { User } from "../models/User";
 
 export class UserForm {
-  constructor(public parent: Element, public user: User) {}
+  constructor(public parent: Element, public model: User) {
+    // console.log(this.model);
+    this.bindModel();
+  }
+
+  bindModel(): void {
+    this.model.on("change", () => {
+      this.render();
+    });
+  }
 
   eventsMap(): { [key: string]: () => void } {
     return {
-      "click:button": this.onClickButton,
+      // "click:button": this.onClickButton,
+      "click:.set-age": () => this.onClickSetAge(),
     };
+  }
+
+  onClickSetAge() {
+    // const randomAge = Math.floor(Math.random() * 100);
+    // console.log("model", this.model);
+    // this.model.set({ ...this.model, age: randomAge });
+    // console.log("clicked");
+    // console.log("this in onClickSetAge", this);
+    // console.log("this.model in onClickSetAge", this.model);
+    this.model.setRandomAge();
   }
 
   onClickButton(): void {
@@ -17,11 +37,12 @@ export class UserForm {
     return `
     <div>
       <h1>User Form</h1>
-      <div>User ID: ${this.user.get("id")}</div>
-      <div>User Name: ${this.user.get("name")}</div>
-      <div>User Age: ${this.user.get("age")}</div>
+      <div>User ID: ${this.model.get("id")}</div>
+      <div>User Name: ${this.model.get("name")}</div>
+      <div>User Age: ${this.model.get("age")}</div>
 
       <button>click me</button>
+      <button class="set-age">Set Random Age</button>
       <input />
     </div>
     `;
@@ -38,9 +59,10 @@ export class UserForm {
   }
 
   render(): void {
+    this.parent.innerHTML = "";
     const templateElement = document.createElement("template");
     templateElement.innerHTML = this.template();
     this.bindEvents(templateElement.content);
-    this.parent.append(templateElement.content as DocumentFragment);
+    this.parent.append(templateElement.content);
   }
 }
