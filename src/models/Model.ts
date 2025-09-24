@@ -16,7 +16,7 @@ interface Events {
   trigger(eventName: string): void;
 }
 
-interface hasId {
+export interface hasId {
   id?: number;
 }
 
