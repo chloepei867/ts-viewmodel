@@ -2,9 +2,10 @@ import axios, { AxiosResponse } from "axios";
 import { User, UserProps } from "./models/User";
 import { Collection } from "./models/Collection";
 import { UserForm } from "./views/UserForm";
+import { UserEdit } from "./views/UserEdit";
 
 const user = User.buildUser({
-  id: 1,
+  // id: 1,
   name: "bob",
   age: 23,
 });
@@ -12,8 +13,9 @@ const user = User.buildUser({
 const root = document.getElementById("root");
 
 if (root) {
-  const userForm = new UserForm(root, user);
-  userForm.render();
+  const userEdit = new UserEdit(root, user);
+  userEdit.render();
+  console.log(userEdit);
 } else {
   throw new Error("root element not found!");
 }

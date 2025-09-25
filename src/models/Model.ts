@@ -67,6 +67,7 @@ export class Model<T extends hasId> {
     const response: AxiosResponse = await this.sync.save(
       this.attributes.getAll()
     );
+    console.log("this.attributes.getAll()", this.attributes.getAll());
     this.trigger("save");
   }
 }
