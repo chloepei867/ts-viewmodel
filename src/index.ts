@@ -3,31 +3,18 @@ import { User, UserProps } from "./models/User";
 import { Collection } from "./models/Collection";
 import { UserForm } from "./views/UserForm";
 import { UserEdit } from "./views/UserEdit";
+import { UserList } from "./views/UserList";
 
-const user = User.buildUser({
-  // id: 1,
-  name: "bob",
-  age: 23,
+//render user list
+const deserialize = (jsonData: UserProps): User => {
+  return User.buildUser(jsonData);
+};
+const users = new Collection("http://localhost:3000/users", deserialize);
+users.fetch().then((res) => {
+  const root = document.getElementById("root");
+
+  if (root) {
+    const userList = new UserList(root, users);
+    userList.render();
+  }
 });
-
-const root = document.getElementById("root");
-
-if (root) {
-  const userEdit = new UserEdit(root, user);
-  userEdit.render();
-  console.log(userEdit);
-} else {
-  throw new Error("root element not found!");
-}
-
-// const userRootUrl = "http://localhost:3000/users";
-
-// const userCollections = User.buildUserCollection();
-
-// userCollections.on("change", () => {
-//   console.log("collection has changed");
-// });
-
-// userCollections.fetch().then((response) => {
-//   console.log(userCollections.models);
-// });
